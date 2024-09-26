@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
   mode: 'development',
-  entry: './views/index.js',
+  entry: './views-lib/index.js',
   devtool: false,
   output: {
     path: path.resolve(__dirname, 'views', 'build'),
@@ -21,7 +21,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@views': path.resolve(__dirname, 'views'), // Add alias for the view folder
+      '@views-lib': path.resolve(__dirname, 'views-lib'), // Add alias for the view folder
     },
   },
   module: {
@@ -44,7 +44,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'views/public', 'index.html')
+      template: path.resolve(__dirname, 'views-lib/public', 'index.html')
     }),
     new Dotenv({ path: './resources/.env' }),
     new CleanWebpackPlugin(),

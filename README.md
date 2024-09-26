@@ -1,22 +1,10 @@
-# MicroApp Boilerplate
+# MicroApp Common LIB Boilerplate
 
-This boilerplate is designed to facilitate the creation of micro apps that include both frontend and backend code within a single repository. These micro apps can be deployed independently and used as plugins in other applications.
+This is part of MicroApp Suites, a common library boilerplate designed to store reusable code for multiple microapps. To avoid duplication, the common library can include shared Java classes, models, functions, interfaces, and React components.
 
 ## Use Case
-Imagine having a page with graphs and data that needs to be replicated in another application. Instead of rewriting its service and UI in the new app, a micro app can be created with all the necessary frontend and backend code in one repository. This micro app can then be deployed independently and used as a plugin in multiple applications. This approach is useful for creating anything from a full page to a simple component that needs to be reused across different apps.
+A team of developers is working on multiple microapps for an enterprise solution. To ensure consistency and avoid code duplication, they use the common library from MicroApp Suites. This library contains shared Java classes, models, functions, interfaces, and React components, allowing the team to efficiently reuse code across different microapps, reducing development time and maintaining uniformity.
 
-## Advantages
-- **Independent Updates**: Updates to the micro app do not require rebuilding the parent application.
-- **Independent Deployment**: Each micro app can be deployed on its own.
-- **Modularity**: Issues in one app do not affect others, ensuring modularity.
-- **Reusable Template**: The boilerplate template can be reused to create multiple micro apps.
-- **Easy Updates**: Updates to the boilerplate can be easily rebased across all micro apps.
-
-## Developer Benefits
-Developers can use this boilerplate to create various small UI examples, screens, pages, or components, which can then be integrated into their parent applications. As the name suggests, it is used to create micro apps that can be integrated into a parent application. These micro apps can be deployed and managed separately.
-
-## Repository Usage
-This repository can serve as a template for new repositories. Developers can create new repositories named after the micro app, add the relevant code, and host them independently. These micro apps can then be used as plugins in multiple applications.
 
 ## Technology
 This boilerplate uses Create ReactJS with Webpack for building the frontend and Spring Boot with Maven for the backend. It is customized for simplicity, with ESLint rules for writing code. 
@@ -28,7 +16,7 @@ This boilerplate uses Create ReactJS with Webpack for building the frontend and 
 The environment variables for the frontend and backend can be separated within the application.
 
 ### Development and Production
-Commands to build, run test cases, and run the development server for both the frontend and backend are configured in `package.json`. Module aliasing is added for the frontend to ensure consistent imports.
+Commands to build and run test cases for both the frontend and backend are configured in `package.json`. Module aliasing is added for the frontend to ensure consistent imports.
 
 
 ## Rules
@@ -37,7 +25,7 @@ Commands to build, run test cases, and run the development server for both the f
 
 ```bash
 root
-├── service
+├── service-lib
 │   ├── main
 │   │   ├── config
 │   │   ├── controllers
@@ -45,7 +33,7 @@ root
 │   │   ├── models
 │   │   └── utils
 │   └── test
-├── views
+├── views-lib
 │   ├── components
 │   ├── utils
 │   ├── pages
