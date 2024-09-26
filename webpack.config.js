@@ -2,12 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const currentEnv = process.env.NODE_ENV || 'dev'; // Default to 'development' if NODE_ENV is not set
-const dotenvFiles = [
-  './resources/.env',
-  `./resources/.env.${currentEnv}`
-].filter(Boolean);
 
 const config = {
   mode: 'development',
@@ -15,10 +11,12 @@ const config = {
   devtool: false,
   output: {
     path: path.resolve(__dirname, 'views', 'build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    library: 'microapp-common', // Name of your library
+    libraryTarget: 'umd', // Universal Module Definition to support various module systems
   },
   devServer: {
-    port: 7001, 
+    port: 7001,
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -48,10 +46,11 @@ const config = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'views/public', 'index.html')
     }),
-    ...dotenvFiles.map(file => new Dotenv({ path: file })),
+    new Dotenv({ path: './resources/.env' }),
+    new CleanWebpackPlugin(),
     new ESLintPlugin({
       extensions: ['js', 'jsx'],
-      exclude: 'node_modules', 
+      exclude: 'node_modules',
       failOnError: true
     }),
   ]
