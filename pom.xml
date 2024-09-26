@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.w3.org/2001/XMLSchema-instance">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.a6h15hek</groupId>
     <artifactId>microapp-common</artifactId>
@@ -21,16 +21,8 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -46,25 +38,14 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/service/main</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/service/test</testSourceDirectory>
+        <sourceDirectory>service-lib/main</sourceDirectory>
+        <testSourceDirectory>service-lib/test</testSourceDirectory>
         <resources>
             <resource>
                 <directory>${project.basedir}/resources</directory>
             </resource>
-            <resource>
-                <directory>${project.basedir}/views/build</directory>
-                <targetPath>static</targetPath>
-            </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>main.Start</mainClass>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
