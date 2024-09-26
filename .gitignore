@@ -1,0 +1,21 @@
+# .gitignore
+
+# Ignore JetBrains IDE files
+.idea
+.vscode
+
+# Ignore dependencies
+node_modules/
+package-lock.json
+
+# Ignore logs
+logs/
+
+# Ignore environment variables
+.env.local
+
+
+# Ignore the build folder of views & spring boot
+views/build
+target
+node
