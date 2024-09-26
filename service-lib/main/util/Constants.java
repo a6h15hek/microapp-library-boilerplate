@@ -1,5 +1,5 @@
-package com.a6h15hek.microapp.common.util;
+package microapp.common.util;
 
 public class Constants {
-    public static String HELLO_WORLD = "HELLOW WORD";
+    public static String HELLO_WORLD = "HELLO WORD";
 }
