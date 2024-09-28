@@ -5,8 +5,10 @@
   "main": "views-library/index.js",
   "scripts": {
     "build:package": "babel views-library --out-dir views-dist && node cli.js",
+    "build:service": "mvn clean install -Dspring.profiles.active=prod",
+
     "local:publish": "npm run build:package && cd views-dist && npm link && npm ls -link",
-    "start:react:dev": "NODE_ENV=dev webpack serve --open --hot --config webpack.config.js"
+    "start:library:dev": "NODE_ENV=dev webpack serve --open --hot --config webpack.config.js"
   },
   "dependencies": {
     "babel-plugin-inline-dotenv": "^1.7.0",

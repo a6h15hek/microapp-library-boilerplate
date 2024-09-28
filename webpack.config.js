@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   mode: 'development',
-  entry: './views-test/index.js',
+  entry: './views-dev/index.js',
   devtool: false,
   bail: true,
   devServer: {
@@ -36,7 +36,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'views-test', 'index.html')
+      template: path.resolve(__dirname, 'views-dev', 'index.html')
     })
   ]
 };

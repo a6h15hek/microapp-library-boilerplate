@@ -1,4 +1,4 @@
-# MicroApp Common LIB Boilerplate
+# MicroApp Library Boilerplate
 
 This is part of MicroApp Suites, a common library boilerplate designed to store reusable code for multiple microapps. To avoid duplication, the common library can include shared Java classes, models, functions, interfaces, and React components.
 
@@ -16,7 +16,49 @@ This boilerplate uses Create ReactJS with Webpack for building the frontend and 
 The environment variables for the frontend and backend can be separated within the application.
 
 ### Development and Production
-Commands to build and run test cases for both the frontend and backend are configured in `package.json`. Module aliasing is added for the frontend to ensure consistent imports.
+Commands to build and run test cases for both the frontend and backend are configured in `package.json`.
+
+## Running the Project
+
+To run the project, use the following commands:
+
+### Build for Package
+- **Frontend library**: `babel views-library --out-dir views-dist && node cli.js`
+- **Backend library**: `mvn clean install -Dspring.profiles.active=prod`
+
+### Start Development Server
+- **Frontend Library**: `npm run start:library:dev`
+- **Frontend Library Local Publish**: `npm run local:publish`
+- **Backend Library**: Test case-driven development.
+
+## Configuration in Your Project
+
+### Frontend
+After running the Frontend Library Local Publish, run:
+
+```sh
+npm link microapp-common@1.0.0
+```
+Then, import and use it like this:
+```javascript
+import { HelloWorld } from 'microapp-common';
+```
+
+import { HelloWorld }  from 'microapp-common';
+
+like above and use it 
+
+### Backend
+Add this dependency to your `pom.xml` file:
+
+```xml
+<dependency>
+    <groupId>com.service-library</groupId>
+    <artifactId>microapp-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <scope>compile</scope>
+</dependency>
+```
 
 
 ## Rules
@@ -25,7 +67,7 @@ Commands to build and run test cases for both the frontend and backend are confi
 
 ```bash
 root
-├── service-lib
+├── service-library
 │   ├── main
 │   │   ├── config
 │   │   ├── controllers
@@ -33,39 +75,23 @@ root
 │   │   ├── models
 │   │   └── utils
 │   └── test
-├── views-lib
+├── views-library (all components, pages, and utils belonging to the common library should be here)
 │   ├── components
 │   ├── utils
 │   ├── pages
 │   ├── contexts
 │   └── test
+├── views-dev (in views-dev, the views-library components and functions can be implemented for development purposes)
+│   ├── index.html
+│   ├── index.js
 
 ```
 
 ### Test Files
-- **Backend**: Tests should be written in the `service/test` folder.
-- **Frontend**: Tests should be written in the `views/test` folder.
+- **Backend Library**: Tests should be written in the `service/test` folder.
+- **Frontend Library**: Tests should be written in the `views-test` folder.
 
 This structure ensures that your project remains organized and adheres to the specified conventions. Let me know if you need any more details or further customization!
-
-## Running the Project
-
-To run the project, use the following commands:
-
-### Build for Production
-- **Frontend**: `npm run build:react:prod`
-- **Backend**: `mvn clean install -Pprod -Dspring.profiles.active=prod`
-
-### Start Development Server
-- **Frontend**: `npm run start:react`
-- **Backend**: `mvn clean spring-boot:run -Pdev -Dspring.profiles.active=dev`
-
-### Build for Development
-- **Frontend**: `npm run build:react`
-- **Backend**: `mvn clean install -Pdev -Dspring.profiles.active=dev`
-
-### Run Tests
-- **Backend**: `mvn clean test -X`
 
 
 ## Updating a Repository Created from a Template
