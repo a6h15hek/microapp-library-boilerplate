@@ -1,5 +1,4 @@
-import '@views-lib/index.css';
-import HelloWorld from '@views-lib/components/HelloWorld';
+import HelloWorld from './components/HelloWorld';
 
 export {
   HelloWorld

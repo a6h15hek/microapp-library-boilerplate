@@ -1,27 +1,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 const config = {
   mode: 'development',
-  entry: './views-lib/index.js',
+  entry: './views-test/index.js',
   devtool: false,
-  output: {
-    path: path.resolve(__dirname, 'views-library', 'build'),
-    filename: 'bundle.js',
-    library: 'microapp-common', // Name of your library
-    libraryTarget: 'umd', // Universal Module Definition to support various module systems
-  },
+  bail: true,
   devServer: {
-    port: 7001,
+    port: 7002,
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@views': path.resolve(__dirname, 'views-library'), // Add alias for the view folder
+      '@views-library': path.resolve(__dirname, 'views-library'), // Add alias for the view folder
     },
   },
   module: {
@@ -44,15 +36,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'views-library/public', 'index.html')
-    }),
-    new Dotenv({ path: './resources/.env' }),
-    new CleanWebpackPlugin(),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx'],
-      exclude: 'node_modules',
-      failOnError: true
-    }),
+      template: path.resolve(__dirname, 'views-test', 'index.html')
+    })
   ]
 };
 
