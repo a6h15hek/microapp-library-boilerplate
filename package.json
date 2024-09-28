@@ -5,7 +5,7 @@
   "main": "views-library/index.js",
   "scripts": {
     "build:package": "babel views-library --out-dir views-dist && node cli.js",
-    "local:publish": "npm run build:package",
+    "local:publish": "npm run build:package && cd views-dist && npm link && npm ls -link",
     "start:react:dev": "NODE_ENV=dev webpack serve --open --hot --config webpack.config.js"
   },
   "dependencies": {
