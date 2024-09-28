@@ -31,7 +31,7 @@ To run the project, use the following commands:
 - **Frontend Library Local Publish**: `npm run local:publish`
 - **Backend Library**: Test case-driven development.
 
-## Configuration in Your Project
+## Add it to Projects
 
 ### Frontend
 After running the Frontend Library Local Publish, run:
