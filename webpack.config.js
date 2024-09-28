@@ -10,7 +10,7 @@ const config = {
   entry: './views-lib/index.js',
   devtool: false,
   output: {
-    path: path.resolve(__dirname, 'views', 'build'),
+    path: path.resolve(__dirname, 'views-library', 'build'),
     filename: 'bundle.js',
     library: 'microapp-common', // Name of your library
     libraryTarget: 'umd', // Universal Module Definition to support various module systems
@@ -21,7 +21,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@views-lib': path.resolve(__dirname, 'views-lib'), // Add alias for the view folder
+      '@views': path.resolve(__dirname, 'views-library'), // Add alias for the view folder
     },
   },
   module: {
@@ -44,7 +44,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'views-lib/public', 'index.html')
+      template: path.resolve(__dirname, 'views-library/public', 'index.html')
     }),
     new Dotenv({ path: './resources/.env' }),
     new CleanWebpackPlugin(),
